@@ -15,7 +15,7 @@ function HomePage() {
   };
 
   return (
-    <div className="bg-background font-body text-on-surface antialiased pt-16">
+    <div className="bg-background font-body text-on-surface antialiased">
       <style>{`
         .text-gradient {
           background: linear-gradient(135deg, #001d44 0%, #00326b 100%);
