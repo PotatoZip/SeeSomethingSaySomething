@@ -43,7 +43,7 @@ function App() {
         </div>
       </nav>
 
-      <main className="page-main flex-grow bg-background">
+      <main className="page-main flex-grow bg-background pt-16">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/send-request" element={<SendRequestPage />} />
