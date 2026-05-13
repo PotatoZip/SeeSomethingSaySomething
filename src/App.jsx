@@ -1,9 +1,16 @@
-import { Link, NavLink, Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import SendRequestPage from './pages/SendRequestPage';
 import GaleryPage from './pages/GaleryPage';
+import { trackPageView } from './analytics';
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    trackPageView(`${location.pathname}${location.search}${location.hash}`);
+  }, [location.pathname, location.search, location.hash]);
   return (
     <div className="app-shell flex flex-col min-h-screen">
       {/* Global Top Navigation */}
