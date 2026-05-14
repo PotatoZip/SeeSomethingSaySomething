@@ -2,7 +2,7 @@ import ReactGA from 'react-ga4';
 
 const MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-HYTP4LMG39';
 
-export const initializeGA = () => {
+export const initializeAnalytics = () => {
     ReactGA.initialize(MEASUREMENT_ID);
 };
 

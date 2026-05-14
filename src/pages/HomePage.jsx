@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import Button from '../components/ui/Button';
 
 function HomePage() {
   const galleryRef = useRef(null);
@@ -34,8 +35,8 @@ function HomePage() {
         }
       `}</style>
 
-      {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center px-6 lg:px-12 py-20 overflow-hidden lg:py-32">
+     
+      <section className="relative flex items-center px-6 lg:px-12 pt-4 pb-12 overflow-hidden lg:pt-8 lg:pb-24">
         <div className="grid lg:grid-cols-2 gap-12 items-center w-full max-w-[1440px] mx-auto">
           <div className="z-10 space-y-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-xs font-bold uppercase tracking-wider">
@@ -53,14 +54,13 @@ function HomePage() {
               zajmie się resztą, łącząc Cię bezpośrednio z odpowiednimi służbami mieście.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Link
-                to="/send-request"
-                className="bg-primary text-on-primary px-10 py-4 rounded-full font-bold text-lg shadow-xl shadow-primary/20 hover:shadow-2xl transition-all flex items-center justify-center gap-2 group"
-              >
-                <span className="material-symbols-outlined group-hover:scale-110 transition-transform">
-                  add_circle
-                </span>
-                Zgłoś usterkę
+              <Link to="/send-request">
+                <Button className="px-10 py-4 text-lg shadow-xl shadow-primary/20 hover:shadow-2xl group">
+                  <span className="material-symbols-outlined group-hover:scale-110 transition-transform">
+                    add_circle
+                  </span>
+                  Zgłoś usterkę
+                </Button>
               </Link>
             </div>
           </div>
@@ -73,7 +73,7 @@ function HomePage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
-            {/* Stats Floating Card */}
+         
             <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-3xl shadow-2xl border border-outline-variant/10 flex items-center gap-4 animate-bounce">
               <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-700">
                 <span className="material-symbols-outlined material-symbols-fill">verified</span>
@@ -91,7 +91,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Updated Stats Section */}
+   
       <section className="bg-white py-24 px-6 lg:px-12 border-y border-outline-variant/10">
         <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
           <div className="space-y-3">
@@ -121,7 +121,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Steps Section */}
+      
       <section className="py-32 px-6 lg:px-12 max-w-[1440px] mx-auto">
         <div className="mb-20 text-center max-w-2xl mx-auto">
           <h2 className="font-headline text-4xl font-extrabold mb-6">
@@ -165,7 +165,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Gallery Section */}
+     
       <section id="gallery" className="bg-surface-container-low py-32 overflow-hidden">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-12 mb-16 flex flex-col md:flex-row justify-between items-end gap-6">
           <div className="max-w-xl">
@@ -196,7 +196,7 @@ function HomePage() {
           ref={galleryRef}
           className="flex gap-8 overflow-x-auto px-6 lg:px-12 hide-scrollbar pb-12 max-w-[1440px] mx-auto"
         >
-          {/* Cards */}
+     
           <div className="min-w-[320px] md:min-w-[500px] bg-white rounded-3xl overflow-hidden shadow-sm flex flex-col group border border-outline-variant/5 transition-all hover:shadow-xl">
             <div className="grid grid-cols-2 h-64">
               <div className="relative overflow-hidden">
@@ -250,7 +250,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Mobile FAB */}
+      
       <Link
         to="/send-request"
         className="md:hidden fixed bottom-6 right-6 w-16 h-16 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center z-[60] active:scale-95 transition-transform"
