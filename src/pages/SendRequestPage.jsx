@@ -1,3 +1,5 @@
+import Button from '../components/ui/Button';
+
 function SendRequestPage() {
   return (
     <div className="flex-grow pt-8 pb-20 px-6 mx-auto w-full max-w-5xl bg-background font-body text-on-surface">
@@ -11,7 +13,6 @@ function SendRequestPage() {
       </header>
 
       <form className="space-y-10" onSubmit={(e) => e.preventDefault()}>
-        {/* Section 1: Category & Priority */}
         <section className="grid grid-cols-1 md:grid-cols-2 lg:gap-12 gap-8">
           <div className="space-y-2">
             <label className="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">
@@ -62,7 +63,6 @@ function SendRequestPage() {
           </div>
         </section>
 
-        {/* Section 2: Description */}
         <section className="space-y-2">
           <label className="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-2">
             Opis problemu
@@ -73,7 +73,6 @@ function SendRequestPage() {
           ></textarea>
         </section>
 
-        {/* Section 3: Photos */}
         <section className="space-y-2">
           <label className="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-4">
             Zdjęcia (maks. 3)
@@ -104,7 +103,6 @@ function SendRequestPage() {
           </div>
         </section>
 
-        {/* Section 4: Location */}
         <section className="space-y-2">
           <label className="block text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-4">
             Lokalizacja
@@ -139,15 +137,14 @@ function SendRequestPage() {
           </div>
         </section>
 
-        {/* Submit Section */}
         <div className="pt-6 border-t border-outline-variant/30 flex flex-col items-center">
-          <button
-            className="w-full md:w-auto md:min-w-[280px] bg-primary text-white h-14 px-8 rounded-full font-bold text-base flex items-center justify-center gap-3 active:scale-95 transition-all hover:shadow-lg hover:bg-primary/90"
+          <Button
             type="submit"
+            className="w-full md:w-auto md:min-w-[280px] h-14 px-8 text-base"
           >
             Wyślij zgłoszenie
             <span className="material-symbols-outlined text-lg">send</span>
-          </button>
+          </Button>
           <p className="mt-4 text-[11px] text-on-surface-variant text-center">
             Przesyłając zgłoszenie akceptujesz regulamin partycypacji społecznej.
           </p>

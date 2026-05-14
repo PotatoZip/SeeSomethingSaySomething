@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import Card from '../components/ui/Card';
 
 function GaleryPage() {
   const [activeCategory, setActiveCategory] = useState('Wszystkie');
@@ -76,22 +77,26 @@ function GaleryPage() {
   }, [activeCategory, searchTerm, galleryCards]);
 
   return (
-    <div className="gallery-page">
-      <section className="gallery-hero">
-        <h1>Galeria Zmian</h1>
-        <p>
+    <div className="w-full max-w-[1180px] mx-auto px-4 py-8">
+      <section className="text-center py-12">
+        <h1 className="text-4xl font-headline font-extrabold text-primary mb-4">Galeria Zmian</h1>
+        <p className="text-lg text-slate-600 max-w-2xl mx-auto">
           Każde zgłoszenie to realna zmiana w naszej przestrzeni. Zobacz, jak wspólnie naprawiamy
           nasze miasto i dbamy o wspólne dobro.
         </p>
       </section>
 
-      <section className="gallery-toolbar">
-        <div className="filter-group">
+      <section className="flex flex-col md:flex-row justify-between items-center bg-white p-4 rounded-2xl shadow-sm border border-slate-200 mb-8 gap-4">
+        <div className="flex flex-wrap gap-2">
           {categories.map((category) => (
             <button
               key={category}
               type="button"
-              className={`filter-button ${category === activeCategory ? 'active' : ''}`}
+              className={`px-4 py-2 rounded-full font-bold text-sm transition-colors ${
+                category === activeCategory
+                  ? 'bg-primary text-white'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+              }`}
               onClick={() => setActiveCategory(category)}
             >
               {category}
@@ -99,48 +104,49 @@ function GaleryPage() {
           ))}
         </div>
 
-        <div className="search-wrapper">
-          <span className="material-symbols-outlined search-icon">search</span>
+        <div className="relative w-full md:w-auto min-w-[250px]">
+          <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
           <input
             type="text"
             value={searchTerm}
             onChange={(event) => setSearchTerm(event.target.value)}
             placeholder="Szukaj lokalizacji..."
             aria-label="Szukaj lokalizacji"
+            className="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary outline-none"
           />
         </div>
       </section>
 
-      <section className="gallery-grid">
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredCards.map((card) => (
-          <article className="gallery-card" key={card.id}>
-            <div className="card-media">
-              <div className="card-image">
-                <span className="card-tag">Przed</span>
-                <img src={card.before} alt={`Przed: ${card.title}`} />
+          <Card className="flex flex-col h-full" key={card.id}>
+            <div className="flex h-48 relative border-b border-slate-200">
+              <div className="w-1/2 relative h-full">
+                <span className="absolute top-2 left-2 bg-black/60 text-white text-[10px] font-bold px-2 py-1 rounded">Przed</span>
+                <img src={card.before} alt={`Przed: ${card.title}`} className="w-full h-full object-cover" />
               </div>
-              <div className="card-image">
-                <span className="card-tag card-tag--after">Po</span>
-                <img src={card.after} alt={`Po: ${card.title}`} />
+              <div className="w-1/2 relative h-full">
+                <span className="absolute top-2 left-2 bg-green-600/90 text-white text-[10px] font-bold px-2 py-1 rounded">Po</span>
+                <img src={card.after} alt={`Po: ${card.title}`} className="w-full h-full object-cover" />
               </div>
             </div>
-            <div className="card-content">
-              <div className="card-header">
+            <div className="p-6 flex flex-col flex-grow">
+              <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h3>{card.title}</h3>
-                  <div className="card-meta">
-                    <span className="material-symbols-outlined">location_on</span>
+                  <h3 className="text-xl font-bold text-slate-800">{card.title}</h3>
+                  <div className="flex items-center text-slate-500 text-sm mt-1 gap-1">
+                    <span className="material-symbols-outlined text-sm">location_on</span>
                     <span>{card.location}</span>
                   </div>
                 </div>
-                <div className="card-status">
-                  <span className="status-label">Ukończono</span>
-                  <span className="status-date">{card.date}</span>
+                <div className="flex flex-col items-end">
+                  <span className="bg-green-100 text-green-800 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider mb-1">Ukończono</span>
+                  <span className="text-xs text-slate-500">{card.date}</span>
                 </div>
               </div>
-              <p className="card-description">{card.description}</p>
+              <p className="text-slate-600 text-sm leading-relaxed">{card.description}</p>
             </div>
-          </article>
+          </Card>
         ))}
       </section>
     </div>
