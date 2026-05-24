@@ -43,7 +43,7 @@ Simple React prototype
 
 4. In GitHub, open repository settings and enable GitHub Pages for the `gh-pages` branch.
 
-The app will be available at `https://<your-username>.github.io/SeeSomethingSaySomething/`.
+The app will be available at `https://<your-username>.github.io/<repo-name>/`.
 
 ## Next Step
 
