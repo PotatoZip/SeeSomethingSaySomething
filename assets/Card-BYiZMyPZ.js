@@ -1,0 +1,1 @@
+import{j as s}from"./index-PS2vJ7YD.js";function t({children:r,className:e="",...o}){return s.jsx("div",{className:`bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden ${e}`,...o,children:r})}export{t as C};
