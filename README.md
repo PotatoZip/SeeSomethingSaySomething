@@ -30,6 +30,21 @@ Simple React prototype
 
 3. Open the URL displayed by Vite (usually `http://localhost:5173`).
 
+## Deploy To GitHub Pages
+
+1. Create a repository on GitHub with the same name as this project: `SeeSomethingSaySomething`.
+2. Push your code to GitHub.
+3. Run:
+
+   ```bash
+   npm install
+   npm run deploy
+   ```
+
+4. In GitHub, open repository settings and enable GitHub Pages for the `gh-pages` branch.
+
+The app will be available at `https://<your-username>.github.io/SeeSomethingSaySomething/`.
+
 ## Next Step
 
 Build each page based on your Figma design.
