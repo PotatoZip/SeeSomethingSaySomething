@@ -1,4 +1,4 @@
-import{r as n,j as e,L as i}from"./index-D2IznH-l.js";import{B as o}from"./Button-Axx5BrKD.js";function x(){const s=n.useRef(null),a=r=>{if(!s.current)return;const l=window.innerWidth<768?320:500,t=32;s.current.scrollBy({left:r==="left"?-(l+t):l+t,behavior:"smooth"})};return e.jsxs("div",{className:"bg-background font-body text-on-surface antialiased",children:[e.jsx("style",{children:`
+import{r as n,j as e,L as i}from"./index-CpmjX0wo.js";import{B as o}from"./Button-B75_P414.js";function x(){const s=n.useRef(null),a=r=>{if(!s.current)return;const l=window.innerWidth<768?320:500,t=32;s.current.scrollBy({left:r==="left"?-(l+t):l+t,behavior:"smooth"})};return e.jsxs("div",{className:"bg-background font-body text-on-surface antialiased",children:[e.jsx("style",{children:`
         .text-gradient {
           background: linear-gradient(135deg, #001d44 0%, #00326b 100%);
           -webkit-background-clip: text;
