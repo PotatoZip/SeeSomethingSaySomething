@@ -1,6 +1,5 @@
 import { useEffect, Suspense, lazy } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import Hotjar from '@hotjar/browser';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import { trackPageView } from './analytics';
@@ -24,17 +23,6 @@ const PageLoader = () => (
 
 function App() {
   const location = useLocation();
-
-  useEffect(() => {
-    const siteId = Number(import.meta.env.VITE_HOTJAR_SITE_ID);
-    const hotjarVersion = Number(import.meta.env.VITE_HOTJAR_VERSION || 6);
-
-    if (Number.isFinite(siteId) && siteId > 0) {
-      Hotjar.init(siteId, hotjarVersion);
-    } else {
-      console.warn('Hotjar is not initialized. Set VITE_HOTJAR_SITE_ID in .env.');
-    }
-  }, []);
 
   useEffect(() => {
     trackPageView(`${location.pathname}${location.search}${location.hash}`);
