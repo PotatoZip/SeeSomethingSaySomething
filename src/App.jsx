@@ -2,7 +2,7 @@ import { useEffect, Suspense, lazy } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-import { trackPageView } from './analytics';
+import { trackInteraction, trackPageView } from './analytics';
 
 
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -27,6 +27,30 @@ function App() {
   useEffect(() => {
     trackPageView(`${location.pathname}${location.search}${location.hash}`);
   }, [location.pathname, location.search, location.hash]);
+
+  useEffect(() => {
+    const handleClick = (event) => {
+      const target = event.target.closest('a,button');
+
+      if (!target) {
+        return;
+      }
+
+      const label = target.getAttribute('aria-label') || target.textContent?.trim() || target.tagName.toLowerCase();
+      const elementType = target.tagName.toLowerCase();
+
+      trackInteraction('ui_click', {
+        element_label: label,
+        element_type: elementType,
+      });
+    };
+
+    document.addEventListener('click', handleClick);
+
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  }, []);
   
   return (
     <div className="app-shell flex flex-col min-h-screen">
