@@ -162,7 +162,7 @@ Google Analytics 4 został wdrożony przez bibliotekę `react-ga4`. Inicjalizacj
 
 #### Google Analytics — widok Realtime z aktywna sesja
 
-![Google Analytics Realtime](docs/screens/GA4.png)
+![Google Analytics Realtime](docs/screens/GA.png)
 
 
 ## 9. Deploy aplikacji
